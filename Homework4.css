@@ -4,8 +4,9 @@ body {
     margin: 0;
     background-color: #1b1b32;
     color: #f5f6f7;
-    font-family: Tahoma;
+    font-family: Helvetica;
     font-size: 16px;
+    background-image: url(http://www.w3.org/2000/svg);
   }
   
   h1, p {
@@ -56,7 +57,7 @@ body {
     vertical-align: middle;
   }
   
-  input[type="submit"] {
+  input[type="button"] {
     display: block;
     width: 60%;
     margin: 1em auto;
@@ -79,3 +80,21 @@ body {
     color:#dfdfe2;
   }
   
+  :root {
+	--list-item-spacing: 1em;
+}
+/* reading mode */
+:is(ul, ol) li {
+	margin-bottom: var(--list-item-spacing);
+	&:last-child {
+		margin-bottom: unset;
+	}
+}
+
+/* edit mode */
+.markdown-source-view.mod-cm6 .cm-contentContainer > .cm-content .cm-line.HyperMD-list-line {
+    padding-bottom: var(--list-item-spacing) !important;
+    &:last-child {
+        padding-bottom: unset !important;
+    }
+}
